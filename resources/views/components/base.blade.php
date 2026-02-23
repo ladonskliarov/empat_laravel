@@ -1,3 +1,5 @@
+@props(['title'=> null])
+
 <!DOCTYPE html>
 <html lang="uk">
 
@@ -13,7 +15,7 @@
 
 <body>
     <nav class="nav-bar">
-        @if($title !== null)
+        @if($title)
         {{$title}}!
         @endif
         <a href="{{route('welcome.index')}}">
