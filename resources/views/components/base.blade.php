@@ -1,5 +1,3 @@
-@props(['title'=> null])
-
 <!DOCTYPE html>
 <html lang="uk">
 
@@ -10,19 +8,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <title>NotionLite</title>
+    <title>History Malva ⚔️</title>
 </head>
 
 <body>
     <nav class="nav-bar">
-        @if($title)
-        {{$title}}!
-        @endif
-        <a href="{{route('welcome.index')}}">
-            NotionLite
+        History Malva ⚔️
+        <a href="{{route('formations.index')}}">
+            Формування СОУ
         </a>
-        <a href="{{route('notes.index')}}">
-            Нотатки
+        <a href="{{route('brigades.index')}}">
+            Бригади
+        </a>
+        <a href="{{route('battles.index')}}">
+            Битви
         </a>
     </nav>
     <section class="content" style="width:100%">

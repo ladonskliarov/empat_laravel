@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notes', function (Blueprint $table) {
+        Schema::create('battle_brigade', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('content');
+            $table->foreignId('battle_id')->constrained();
+            $table->foreignId('brigade_id')->constrained();
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists('battle_brigade');
     }
 };

@@ -19,6 +19,7 @@ body {
     align-items: center;
     font-family: "Montserrat", sans-serif;
     color: black;
+    background-color: RGB(218, 218, 218);
 }
 
 a {
@@ -41,7 +42,7 @@ a {
     flex-direction: row;
     align-items: center;
     gap: 30px;
-    background-color: grey;
+    background-color: RGB(62, 62, 62);
     color: white;
 
     a {
@@ -58,107 +59,23 @@ a {
     }
 }
 
-.notes {
+.brigades {
     display: flex;
-    flex-direction: column;
+    flex-direction: grid;
+    flex-wrap: wrap;
     gap: 30px;
     min-width: 500px;
 }
 
-.note-card {
+.battles {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    min-width: 100%;
-    min-height: 120px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    gap: 10px;
-    padding: 16px;
-    background-color: white;
-    border: 1px solid rgb(222, 222, 222);
-    max-lines: 2;
+    align-self: start;
+    gap: 30px;
+    min-width: 500px;
+    text-decoration: underline;
 }
 
-.note-card__content {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
-
-.note-card__bottom {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.form-card {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    min-width: 100%;
-    height: 300px;
-    border-radius: 20px;
-    border: 1px solid rgb(222, 222, 222);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-    padding: 16px;
-    gap: 16px;
-}
-
-.textarea {
-  background: #f9fafb;
-  color: #111827;
-  border: none;
-  border-radius: 12px;
-  padding: 14px 18px;
-  font-size: 15px;
-  outline: none;
-  transition: all 0.2s ease;
-  width: 100%;
-  resize: none;
-}
-
-.textarea:focus {
-  background: #ffffff;
-  box-shadow: 0 0 0 2px #898989;
-}
-
-.textarea::placeholder {
-  color: #9ca3af;
-}
-
-.form-card__title {
-    display: block;
-    width: 100%;
-    font-family: "Montserrat", sans-serif;
-    max-lines: 1;
-}
-
-.form-card__content {
-    display: block;
-    height: 200px;
-    width: 100%;
-    font-family: "Montserrat", sans-serif;
-}
-
-.form-card__button {
-    display: block;
-    width: 100px;
-    color: white;
-    background-color: grey;
-    border: none;
-    border-radius: 10px;
-    padding: 12px;
-    font-family: "Montserrat", sans-serif;
-
-    &:hover {
-        background-color: black;
-    }
-
-    &:active {
-        background-color: black;
-    }
+.link {
+    text-decoration: underline;
 }
