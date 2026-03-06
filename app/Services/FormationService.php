@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Repositories\FormationRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class FormationService
 {
@@ -12,7 +13,7 @@ class FormationService
         $this->formationRepository = $formationRepository;
     }
 
-    public function getAllFormations()
+    public function getAllFormations() : Collection
     {
         return $this->formationRepository->getAllFormations();
     }

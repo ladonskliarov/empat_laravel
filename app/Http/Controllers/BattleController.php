@@ -6,16 +6,16 @@ use App\Services\BattleService;
 
 class BattleController extends Controller
 {
-    protected BattleService $service;
+    protected BattleService $battleService;
 
-    public function __construct(BattleService $service)
+    public function __construct(BattleService $battleService)
     {
-        $this->service = $service;
+        $this->battleService = $battleService;
     }
 
     public function index()
     {
-        $battles = $this->service->getAllBattles();
+        $battles = $this->battleService->getAllBattles();
         return view('battles.index', [
             'battles' => $battles
         ]);
@@ -23,7 +23,7 @@ class BattleController extends Controller
 
     public function show($id)
     {
-        $battle = $this->service->getBattleById($id);
+        $battle = $this->battleService->getBattleById($id);
         return view('battles.show', ['battle' => $battle]);
     }
 }

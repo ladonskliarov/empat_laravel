@@ -6,22 +6,22 @@ use App\Services\BrigadeService;
 
 class BrigadeController extends Controller
 {
-    protected BrigadeService $service;
+    protected BrigadeService $brigadeService;
 
-    public function __construct(BrigadeService $service)
+    public function __construct(BrigadeService $brigadeService)
     {
-        $this->service = $service;
+        $this->brigadeService = $brigadeService;
     }
 
     public function index() {
-        $brigades = $this->service->getAllBrigades();
+        $brigades = $this->brigadeService->getAllBrigades();
         return view('brigades.index', [
             'brigades' => $brigades
         ]);
     }
 
     public function show($id) {
-        $brigade = $this->service->getBrigadeById($id);
+        $brigade = $this->brigadeService->getBrigadeById($id);
         return view('brigades.show', ['brigade' => $brigade]);
     }
 }

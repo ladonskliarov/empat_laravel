@@ -2,6 +2,8 @@
 namespace App\Services;
 
 use App\Repositories\BattleRepository;
+use Illuminate\Database\Eloquent\Collection;
+use App\Models\Battle;
 
 class BattleService
 {
@@ -12,12 +14,12 @@ class BattleService
         $this->battleRepository = $battleRepository;
     }
 
-    public function getAllBattles()
+    public function getAllBattles() : Collection
     {
         return $this->battleRepository->getAllBattles();
     }
 
-    public function getBattleById($id)
+    public function getBattleById($id) : Battle
     {
         return $this->battleRepository->getBattleById($id);
     }
