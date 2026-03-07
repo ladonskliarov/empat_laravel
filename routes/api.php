@@ -12,4 +12,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('api.auth.logout');
     Route::get('/categories', [CategoryController::class, 'index'])->name('api.categories.index');
     Route::get('/categories/{id}/products', [ProductController::class, 'index'])->name('api.products.index');
+
+    Route::post('/categories', [CategoryController::class, 'store']);
+    Route::put('/categories/{id}', [CategoryController::class, 'update']);
+
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::put('/products/{id}', [ProductController::class, 'update']);
 });

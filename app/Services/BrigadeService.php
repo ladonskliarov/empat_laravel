@@ -19,7 +19,7 @@ class BrigadeService
         return $this->brigadeRepository->getAllBrigades();
     }
 
-    public function getBrigadeById($id) : Brigade
+    public function getBrigadeById(int $id) : Brigade
     {
         return $this->brigadeRepository->getBrigadeById($id);
     }

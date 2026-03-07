@@ -19,7 +19,7 @@ class BattleService
         return $this->battleRepository->getAllBattles();
     }
 
-    public function getBattleById($id) : Battle
+    public function getBattleById(int $id) : Battle
     {
         return $this->battleRepository->getBattleById($id);
     }
