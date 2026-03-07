@@ -23,6 +23,22 @@
         <a href="{{route('battles.index')}}">
             Битви
         </a>
+        @guest
+        <a href="{{route('auth.login')}}">
+            Увійти
+        </a>
+        <a href="{{route('auth.registration')}}">
+            Реєстрація
+        </a>
+        @endguest
+        @auth
+        <a href="{{route('products.index')}}">
+            Мерч
+        </a>
+        <a href="{{route('account.index')}}">
+            Аккаунт
+        </a>
+        @endauth
     </nav>
     <section class="content" style="width:100%">
         {{$content}}

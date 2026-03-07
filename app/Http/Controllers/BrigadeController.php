@@ -20,7 +20,7 @@ class BrigadeController extends Controller
         ]);
     }
 
-    public function show($id) {
+    public function show(int $id) {
         $brigade = $this->brigadeService->getBrigadeById($id);
         return view('brigades.show', ['brigade' => $brigade]);
     }

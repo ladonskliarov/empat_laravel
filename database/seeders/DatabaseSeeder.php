@@ -2,25 +2,16 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Formation;
-use App\Models\Brigade;
-use App\Models\Battle;
 
 class DatabaseSeeder extends Seeder
 {
 public function run(): void
-{   
-    $nguDescription = <<<LABEL
-    Націона́льна гва́рдія Украї́ни (абр. НГУ)  — військове формування з правоохоронними функціями, що входить до системи Міністерства внутрішніх справ України (МВС) і призначено для виконання завдань із захисту та охорани життя, прав, свобод і законних інтересів громадян України, суспільства і держави від злочинних та інших протиправних посягань, охорани громадського порядку та забезпечення громадської безпеки, а також у взаємодії з правоохоронними органами — із забезпечення державної безпеки і захисту державного кордону, припинення терористичної діяльності, діяльності незаконних воєнізованих або збройних формувань (груп), терористичних організацій, організованих груп та злочинних організацій.
-    LABEL;
-
-        Formation::create([
-            'name' => 'Національна Гвардія України',
-            'abbreviation' => 'НГУ',
-            'description' => $nguDescription,
-            'image' => '',
+    {
+        $this->call([
+            CategorySeeder::class,
+            ProductSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

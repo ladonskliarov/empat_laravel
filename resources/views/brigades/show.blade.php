@@ -5,7 +5,7 @@
             <h2>{{ $brigade->name }}</h2>
             <a href="{{ route('formations.index')}}"><p>У складі: <strong class="link">{{ $brigade->formation->name }}</strong></p></a>
             <p>{{ $brigade->description }}</p>
-            <img src="{{ asset($brigade->image) }}" alt="{{ $brigade->name }} image" style="width: auto; height: 300px; object-fit: contain; margin-top: 20px; margin-bottom: 20px;">
+            <img src="{{ asset('storage/' . $brigade->image) }}" alt="{{ $brigade->name }} image" style="width: auto; height: 300px; object-fit: contain; margin-top: 20px; margin-bottom: 20px;">
             <h3>Битви</h3>
             <ul>
                 @foreach($brigade->battles as $battle)
