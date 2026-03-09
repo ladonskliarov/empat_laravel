@@ -29,6 +29,6 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-    Route::get('/account', [AccountController::class, 'index'])->name('account.index')->middleware('auth');
-    Route::post('/account/logout', [AccountController::class, 'logout'])->name('account.logout')->middleware('auth');
+    Route::get('/account', [AccountController::class, 'index'])->name('account.index');
+    Route::post('/account/logout', [AccountController::class, 'logout'])->name('account.logout');
 });
