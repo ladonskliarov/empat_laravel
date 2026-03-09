@@ -5,8 +5,8 @@ namespace App\Services;
 use App\Repositories\ProductRepository;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
-
 
 class ProductService
 {
@@ -37,14 +37,14 @@ class ProductService
         return $this->productRepository->getProductById($id);
     }
 
-    public function createProduct(array $data) : Product
+    public function createProduct(Request $request) : Product
     {
-        return $this->productRepository->createProduct($data);
+        return $this->productRepository->createProduct($request);
     }
     
-    public function updateProduct(int $id, array $data) : Product
+    public function updateProduct(Request $request, int $id) : Product
     {
-        return $this->productRepository->updateProduct($id, $data);
+        return $this->productRepository->updateProduct($request, $id);
     }
 
     public function getAllCategories() : Collection
@@ -52,13 +52,13 @@ class ProductService
         return $this->productRepository->getCategories();
     }
 
-    public function createCategory(array $data) : Category
+    public function createCategory(Request $request) : Category
     {
-        return $this->productRepository->createCategory($data);
+        return $this->productRepository->createCategory($request);
     }
 
-    public function updateCategory(int $id, array $data) : Category
+    public function updateCategory(Request $request, int $id) : Category
     {
-        return $this->productRepository->updateCategory($id, $data);
+        return $this->productRepository->updateCategory($request, $id);
     }
 }

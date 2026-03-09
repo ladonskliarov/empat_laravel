@@ -16,16 +16,10 @@ class AuthController extends Controller
     {
         $validatedData = $request->validated();
 
-        if($validatedData->fails()) {
-            return response()->json([
-                'errors' => $validatedData->errors()
-            ], 422);
-        }
-
         $user = User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
-            'password' => Hash::make($validatedData['password']),
+            'password' => $validatedData['password'],
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;

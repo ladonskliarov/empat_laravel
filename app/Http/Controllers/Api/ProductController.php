@@ -27,16 +27,16 @@ class ProductController extends Controller
         return response()->json($products, 200);
     }
 
-    public function create(array $data) : JsonResponse 
+    public function store(Request $request) : JsonResponse 
     {   
-        $product = $this->productService->createProduct($data);
+        $product = $this->productService->createProduct($request);
         return response()->json($product, 201);
     }
 
-    public function update(int $id, array $data) : JsonResponse
+    public function update(Request $request, int $id) : JsonResponse
     {
         $product = $this->productService->getProductById($id);
-        $product->update($data);
+        $product = $this->productService->updateProduct($request, $id);
         return response()->json($product, 200);
     }
 }

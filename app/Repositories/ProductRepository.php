@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class ProductRepository
 {
@@ -27,15 +28,30 @@ class ProductRepository
         return Product::findOrFail($id);
     }
 
-    public function createProduct(array $data) : Product
+    public function createProduct(Request $request) : Product
     {
-        return Product::create($data);
+        $validatedData = $request->validate([
+            'category_id' => 'required|integer|exists:categories,id',
+            'name' => 'required|string|max:255|unique:products,name',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+            'image' => 'nullable|string',
+        ]);
+        return Product::create($validatedData);
     }
 
-    public function updateProduct(int $id, array $data) : Product
+    public function updateProduct(Request $request, int $id) : Product
     {
+        $validatedData = $request->validate([
+            'category_id' => 'required|integer|exists:categories,id',
+            'name' => 'required|string|max:255|unique:products,name,' . $id,
+            'description' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+            'image' => 'nullable|string',
+        ]);
+
         $product = Product::findOrFail($id);
-        $product->update($data);
+        $product->update($validatedData);
         return $product;
     }
 
@@ -44,15 +60,23 @@ class ProductRepository
         return Category::all();
     }
 
-    public function createCategory(array $data) : Category
+    public function createCategory(Request $request) : Category
     {
-        return Category::create($data);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255|unique:categories,name'
+        ]);
+
+        return Category::create($validatedData);
     }
 
-    public function updateCategory(int $id, array $data) : Category
+    public function updateCategory(Request $request, int $id) : Category
     {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255|unique:categories,name'
+        ]);
+
         $category = Category::findOrFail($id);
-        $category->update($data);
+        $category->update($validatedData);
         return $category;
     }
 }
